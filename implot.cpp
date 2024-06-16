@@ -719,6 +719,8 @@ void Locator_Default(ImPlotTicker& ticker, const ImPlotRange& range, float pixel
     const double nice_range = NiceNum(range.Size() * 0.99, false);
     const double interval   = NiceNum(nice_range / (nMajor - 1), true);
     const double graphmin   = floor(range.Min / interval) * interval;
+    if (graphmin + interval == graphmin)
+        return;
     const double graphmax   = ceil(range.Max / interval) * interval;
     bool first_major_set    = false;
     int  first_major_idx    = 0;
